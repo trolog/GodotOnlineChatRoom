@@ -1,0 +1,129 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Lobby/Lobby.gd" type="Script" id=1]
+
+[node name="Lobby" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="vbxLobbyContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -124.0
+margin_top = -58.0
+margin_right = 124.0
+margin_bottom = 58.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hbxNameContainer" type="HBoxContainer" parent="vbxLobbyContainer"]
+margin_right = 248.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0.071 )
+size_flags_vertical = 0
+custom_constants/separation = 10
+
+[node name="lblName" type="Label" parent="vbxLobbyContainer/hbxNameContainer"]
+margin_top = 3.0
+margin_right = 38.0
+margin_bottom = 17.0
+text = "Name"
+align = 1
+valign = 1
+
+[node name="txtName" type="TextEdit" parent="vbxLobbyContainer/hbxNameContainer"]
+margin_left = 48.0
+margin_right = 248.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+text = "Test"
+
+[node name="hbxIPContainer" type="HBoxContainer" parent="vbxLobbyContainer"]
+margin_top = 24.0
+margin_right = 248.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 200, 0.071 )
+size_flags_vertical = 0
+custom_constants/separation = 10
+
+[node name="lblIP" type="Label" parent="vbxLobbyContainer/hbxIPContainer"]
+margin_top = 3.0
+margin_right = 37.0
+margin_bottom = 17.0
+text = "IP      "
+align = 1
+valign = 1
+
+[node name="txtIP" type="TextEdit" parent="vbxLobbyContainer/hbxIPContainer"]
+margin_left = 47.0
+margin_right = 247.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 20 )
+text = "127.0.0.1"
+
+[node name="hbxIPContainer2" type="HBoxContainer" parent="vbxLobbyContainer"]
+margin_top = 48.0
+margin_right = 248.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 200, 0.071 )
+size_flags_vertical = 0
+custom_constants/separation = 10
+
+[node name="lblIP" type="Label" parent="vbxLobbyContainer/hbxIPContainer2"]
+margin_top = 3.0
+margin_right = 37.0
+margin_bottom = 17.0
+text = "Color "
+align = 1
+valign = 1
+
+[node name="optColors" type="OptionButton" parent="vbxLobbyContainer/hbxIPContainer2"]
+margin_left = 47.0
+margin_right = 247.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 200, 0 )
+text = "red"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btnHost" type="Button" parent="vbxLobbyContainer"]
+margin_top = 72.0
+margin_right = 248.0
+margin_bottom = 92.0
+text = "HOST"
+
+[node name="btnJoin" type="Button" parent="vbxLobbyContainer"]
+margin_top = 96.0
+margin_right = 248.0
+margin_bottom = 116.0
+text = "JOIN"
+
+[node name="hbxStatusContainer" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="lblStateText" type="Label" parent="hbxStatusContainer"]
+margin_top = 13.0
+margin_right = 55.0
+margin_bottom = 27.0
+text = "STATUS: "
+
+[node name="lblStatus" type="Label" parent="hbxStatusContainer"]
+margin_left = 59.0
+margin_top = 13.0
+margin_right = 107.0
+margin_bottom = 27.0
+text = "Waiting"
+
+[connection signal="item_selected" from="vbxLobbyContainer/hbxIPContainer2/optColors" to="." method="_on_optColors_item_selected"]
+[connection signal="pressed" from="vbxLobbyContainer/btnHost" to="." method="_on_btnHost_pressed"]
+[connection signal="pressed" from="vbxLobbyContainer/btnJoin" to="." method="_on_btnJoin_pressed"]
